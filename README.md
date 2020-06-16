@@ -140,3 +140,67 @@ public class MainController {
 		
 		
 	}
+	
+<p>locationInterface:</p>  
+
+	<!DOCTYPE HTML>
+	<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<title>Email</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/style.css" rel="stylesheet">
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>    
+	</head>
+	<body class="bg-secondary">
+	<div class="row container-fluid">
+		<div class="col-12 col-md-4 mx-auto mt-4  bg-dark rounded">
+			<form action="#" th:action="@{/getPlace}" th:object="${Location}" method="post"  class="text-white">
+				 <label>Insert Place Name:</label>
+				<input required class="form-control" type="text" th:field="*{name}" />	
+				<p class="mt-4"><input class="btn btn-primary mr-3" type="submit" value="Submit" /> <input class="btn btn-danger" type="reset" value="Reset" /></p>
+			</form>
+		</div>
+	 </div>
+	</body>
+	</html>
+	
+<p>details:</p> 
+
+	<!DOCTYPE HTML>
+	<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<title>Email</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/style.css" rel="stylesheet">
+		<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>    
+	</head>
+	<body class="bg-secondary">
+		<div class="col-12 row mt-5 ">
+			<div class="col-md-4 mx-auto">
+				  <ul class="list-group"  style="border-radius:5px; box-shadow:black 1px 1px">
+				  <li class="list-group-item">
+					<b>Name:</b><p class="my-auto" th:text="${location.name}" />
+					</li>
+					<li class="list-group-item">
+					<b>Country:</b><p class="my-auto" th:text="${location.country}" />
+					</li>
+					<li class="list-group-item">
+					<b>Latitude:</b><p class="my-auto" th:text="${location.latitude}" />
+					</li>
+					<li class="list-group-item">
+					<b>Longitud:</b><p class="my-auto" th:text="${location.longitud}" />
+					</li>
+					<li class="list-group-item">
+					<b>Place id:</b><p class="my-auto" th:text="${location.place_id}" />
+					</li>
+				
+					<li class="list-group-item">
+					<a href="/" class="my-auto ml-auto">Find New Place</a>
+					</li>
+				  </ul>
+			</div>
+		</div>
+	</body>
+	</html>
