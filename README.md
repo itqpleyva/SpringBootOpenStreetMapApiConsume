@@ -2,7 +2,7 @@
 
 <p>In this example we consume the OpenStreetMap Api using spring boot RestTemplate</p>
 <br>
-<p>Hoome interface:</p>
+<p>Home interface:</p>
 <img src="home.png"/>
 <p>The place details interface:</p>
 <img src="place_details.png"/>
@@ -11,7 +11,7 @@
 <p>Controller:</p>
 
       @Controller
-public class MainController {
+     public class MainController {
 
 		 @PostMapping("/getPlace")
 		 public String locationSubmit(@ModelAttribute Location location, BindingResult bindingResult, @RequestParam("name") String name) {
@@ -20,7 +20,7 @@ public class MainController {
 				RestTemplate restTemplate = new RestTemplate();
 
 				ResponseEntity<String> topic_body = restTemplate.exchange("https://nominatim.openstreetmap.org/?addressdetails=1&q="+location.getName()+"&format=json&limit=1", 
-						HttpMethod.GET, null, String.class );
+						HttpMethod.GET, null, String.class );//comsuming openstreetmap api
 						 
 				String  topics = topic_body.getBody(); 
 				System.out.println(topics);
@@ -80,7 +80,6 @@ public class MainController {
 		 
 <p>Location Model:</p>  
 
-
 	public class Location {
 
 		private String name;
@@ -136,9 +135,7 @@ public class MainController {
 		public Location() {
 			super();
 			// TODO Auto-generated constructor stub
-		}
-		
-		
+		}		
 	}
 	
 <p>locationInterface:</p>  
